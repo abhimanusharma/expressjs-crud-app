@@ -22,8 +22,10 @@ CRM is using express router and mongodb for database operations. To update or ge
 
 
 ### .env file
-`MONGO_DB_URL=mongodb://<hostname>:<mongodb-port-number>/<dbname>`
-`SERVER_PORT=<server-port-number>`
+```
+MONGO_DB_URL=mongodb://<hostname>:<mongodb-port-number>/<dbname>
+SERVER_PORT=<server-port-number>
+```
 
 ### New route
 After creating new route file include it into routes/index.js
