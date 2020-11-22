@@ -15,7 +15,7 @@ router.get('/:id', salesController.view_single);
 router.put('/:id', salesController.update_single);
 
 //delete
-router.delete('/delete/:id', salesController.delete_single);
+router.delete('/:id', salesController.delete_single);
 
 
 module.exports = router;

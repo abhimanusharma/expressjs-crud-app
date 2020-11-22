@@ -2,16 +2,28 @@
   "name": "crm-application",
   "version": "1.0.0",
   "description": "customer relationship management ",
-  "main": "index.js",
+  "main": "app.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "lint": "eslint ./",
+    "test": "jest -i --verbose --coverage --runInBand",
+    "start": "node app.js",
+    "dboff": "killall mongod",
+    "watch": "nodemon app.js",
+    "start-watch": "nodemon app.js",
+    "dev": "concurrently \"npm run start-watch\" \"cd view && npm start\"",
+    "dbon": "mkdir -p ./db && mongod --dbpath ./db"
   },
-  "author": "PANKAJ SHARMA",
+  "author": "ABHIMANU SHARMA",
   "license": "ISC",
   "dependencies": {
     "body-parser": "^1.19.0",
+    "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
     "mongoose": "^5.10.11"
+  },
+  "devDependencies": {
+    "concurrently": "^5.3.0",
+    "nodemon": "^2.0.6"
   }
 }

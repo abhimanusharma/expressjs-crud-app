@@ -15,7 +15,7 @@ router.get('/:id', leadsController.view_single);
 router.put('/:id', leadsController.update_single);
 
 //delete a lead
-router.delete('/delete/:id', leadsController.delete_single);
+router.delete('/:id', leadsController.delete_single);
 
 
 module.exports = router;

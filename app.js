@@ -14,7 +14,14 @@ app.use(bodyParser.json()) //To parse json data
 
 // Import All routes
 const routes = require('./routes');
-app.use('/', routes);
+app.use('/api/', routes);
+
+// Set CORS headers
+app.use((req, res, next) => {
+   res.header("Access-Control-Allow-Origin", "*");
+   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+   next();
+});
 
 //connect to mongo db use mongo
 const mongoose = require('mongoose');

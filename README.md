@@ -15,6 +15,18 @@ CRM is using express router and mongodb for database operations. To update or ge
    - index.js
    - leadRouter.js
    - saleRouter.js
+- view/
+   - public/
+   - src/
+      - components/
+         - Client.js
+		 - Sale.js
+		 - Lead.js
+      - App.js
+      - App.css
+      - index.js
+      - index.css
+   - package.json
 - app.js
 - package.json
 - README.md
@@ -33,7 +45,7 @@ After creating new route file include it into routes/index.js
 ### Run the app
 To run the applcation make sure you have **nodejs** and **mongodb** installed locally.
 Run `npm install` to install all the dependencies.
-Run `node app.js` to run the application
+Run `npm run dev` to run the application
 
 ### Mongodb database
 After installing mongodb on your local machine or VM or docker create a database in it.
