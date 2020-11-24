@@ -4,8 +4,9 @@
 name: Publish
 
 on:
-  release:
-    types: [created]
+  publish:
+    branches:
+	- master
 
 jobs:
   build:
