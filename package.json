@@ -1,5 +1,5 @@
 {
-  "name": "crm-application",
+  "name": "@abhimanu/mern-crud-app",
   "version": "1.0.0",
   "description": "customer relationship management ",
   "main": "app.js",
