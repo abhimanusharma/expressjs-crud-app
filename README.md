@@ -15,7 +15,7 @@ CRM is using express router and mongodb for database operations. To update or ge
    - index.js
    - leadRouter.js
    - saleRouter.js
-- view/
+- views/
    - public/
    - src/
       - components/
