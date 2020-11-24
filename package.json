@@ -1,6 +1,6 @@
 {
   "name": "@abhimanusharma/mern-crud-app",
-  "version": "1.0.0",
+  "version": "1.1.0",
   "description": "customer relationship management ",
   "main": "app.js",
   "scripts": {
@@ -15,7 +15,7 @@
   },
   "author": "ABHIMANU SHARMA",
   "repository": {
-	"url": "git://github.com/abhimanusharma/mern-crud-app.git"
+    "url": "git://github.com/abhimanusharma/mern-crud-app.git"
   },
   "license": "ISC",
   "dependencies": {
