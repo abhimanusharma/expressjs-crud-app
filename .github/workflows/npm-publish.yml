@@ -4,9 +4,9 @@
 name: Publish
 
 on:
-  publish:
+  push:
     branches:
-	  - master
+	    - master
 
 jobs:
   build:
