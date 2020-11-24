@@ -19,7 +19,7 @@ class Lead extends Component {
       .then(res => {
         if(res.data){
           this.setState({
-            todosleads: res.data
+            leads: res.data
           })
         }
       })

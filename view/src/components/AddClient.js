@@ -29,7 +29,7 @@ class AddClient extends Component {
       axios.post('/api/clients', client)
         .then(res => {
           if(res.data){
-            this.props.getTodos();
+            this.props.getClients();
             this.setState({
               client_id: null,
               client_name: "",

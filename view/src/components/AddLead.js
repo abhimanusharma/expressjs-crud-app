@@ -29,7 +29,7 @@ class AddLead extends Component {
       axios.post('/api/leads', lead)
         .then(res => {
           if(res.data){
-            this.props.getTodos();
+            this.props.getLeads();
             this.setState({
               lead_id: null,
               lead_name: "",

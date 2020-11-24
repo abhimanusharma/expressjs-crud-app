@@ -29,7 +29,7 @@ class AddSale extends Component {
       axios.post('/api/Sales', sale)
         .then(res => {
           if(res.data){
-            this.props.getTodos();
+            this.props.getSales();
             this.setState({
               sale_id: null,
               sale_name: "",
