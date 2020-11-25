@@ -1,6 +1,6 @@
 {
   "name": "@abhimanusharma/mern-crud-app",
-  "version": "1.16.0",
+  "version": "1.17.0",
   "description": "customer relationship management ",
   "main": "app.js",
   "scripts": {
