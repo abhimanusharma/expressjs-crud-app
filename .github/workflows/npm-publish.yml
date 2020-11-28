@@ -19,6 +19,7 @@ jobs:
                   node-version: 12
             - run: npm ci
             - run: npm run lint
+            - run: npm run test
 
     # Publish to NPMJS
     publish-npm:

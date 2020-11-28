@@ -10,6 +10,7 @@
     "dboff": "killall mongod",
     "watch": "nodemon app.js",
     "start-watch": "nodemon app.js",
+    "build": "cd view && npm run build",
     "dev": "concurrently \"npm run start-watch\" \"cd view && npm start\"",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db"
   },
@@ -27,6 +28,8 @@
   },
   "devDependencies": {
     "concurrently": "^5.3.0",
+    "eslint": "^7.14.0",
+    "jest": "^26.6.3",
     "nodemon": "^2.0.6"
   }
 }
