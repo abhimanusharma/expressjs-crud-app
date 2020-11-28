@@ -11,18 +11,15 @@ on:
 
 jobs:
     build:
-        runs-on: ubuntu-latest
-        steps:
-            # Checkout the repo
-            - uses: actions/checkout@master
-
-            # Update package version and set up git
-            - uses: actions/setup-node@master
-            - name: Update package version and setup git
-              run: |
-                  git config user.name "abhimanusharma"
-                  git config user.email dragonabv1@github.com
-                  npm version 1.0.$(date +%s)
+    runs-on: ubuntu-latest
+    steps:
+        - uses: actions/checkout@v1
+        - uses: actions/setup-node@v1
+          with:
+              node-version: 12
+        - run: npm ci
+        - run: npm run build
+        - run: npm run lint
 
     # Publish to NPMJS
     publish-npm:
