@@ -10,7 +10,7 @@ on:
 #         types: [created]
 
 jobs:
-    publish-to-npm-and-gpr:
+    build:
         runs-on: ubuntu-latest
         steps:
             # Checkout the repo
