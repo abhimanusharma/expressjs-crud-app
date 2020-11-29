@@ -16,7 +16,11 @@
   },
   "author": "ABHIMANU SHARMA",
   "repository": {
-    "url": "git://github.com/abhimanusharma/mern-crud-app.git"
+    "type": "git",
+    "url": "git@github.com:abhimanusharma/mern-crud-app.git"
+  },
+  "publishConfig": {
+    "registry": "https://npm.pkg.github.com/abhimanusharma"
   },
   "license": "ISC",
   "dependencies": {
