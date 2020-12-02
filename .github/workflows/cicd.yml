@@ -1,0 +1,36 @@
+name: git tag release and npm package publisher
+on:
+    push:
+        branches:
+            - master
+jobs:
+    publish_tag_package:
+        runs-on: ubuntu-latest
+        steps:
+            - uses: actions/checkout@v2
+              with:
+                  fetch-depth: "0"
+            - name: Bump version and push tag
+              id: bump_version
+              uses: anothrNick/github-tag-action@1.17.2
+              env:
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  WITH_V: true
+                  RELEASE_BRANCHES: master
+                  # CUSTOM_TAG: v1.12.0-rc
+
+            # Setup .npmrc file to publish to GitHub Packages
+            - uses: actions/setup-node@v1
+              with:
+                  node-version: "12.x"
+                  registry-url: "https://npm.pkg.github.com"
+                  scope: "@abhimanusharma"
+
+            - run: |
+                  git config --global user.email "${{ github.actor }}@noreply.github.com"
+                  git config --global user.name "${{ github.actor }}"
+                  echo "${{ steps.bump_version.outputs.tag }}"
+
+            - run: npm version "${{ steps.bump_version.outputs.tag }}" && npm publish
+              env:
+                  NODE_AUTH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
