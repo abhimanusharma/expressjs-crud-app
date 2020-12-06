@@ -10,7 +10,7 @@ const ListClient = ({ clients, deleteClient }) => {
             (
               clients.map(client => {
                 return (
-                  <li key={client._id} onClick={() => deleteClient(client._id)}>{client.action}</li>
+                  <li key={client._id} onClick={() => {if(window.confirm("Are you sure?"))deleteClient(client._id)}}>{client.client_name}</li>
                 )
               })
             )

@@ -10,8 +10,7 @@
     "dboff": "killall mongod",
     "watch": "nodemon app.js",
     "start-watch": "nodemon app.js",
-    "build": "cd view && npm run build",
-    "dev": "concurrently \"npm run start-watch\" \"cd view && npm start\"",
+    "dev": "concurrently \"npm run start-watch\" \"cd views && npm start\"",
     "dbon": "mkdir -p ./db && mongod --dbpath ./db"
   },
   "author": "ABHIMANU SHARMA",
@@ -28,7 +27,8 @@
     "cors": "^2.8.5",
     "dotenv": "^8.2.0",
     "express": "^4.17.1",
-    "mongoose": "^5.10.11"
+    "mongoose": "^5.10.11",
+    "reactstrap": "^8.7.1"
   },
   "devDependencies": {
     "concurrently": "^5.3.0",

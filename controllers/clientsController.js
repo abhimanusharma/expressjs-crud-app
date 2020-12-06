@@ -33,7 +33,7 @@ exports.delete_single = function(req, res){
 // Handle client create on POST request.
 exports.create_post = function(req, res){
     var clientInfo = req.body; //Get the parsed information
-    
+    //return res.json({status:'success',message: clientInfo});
     if(!clientInfo.company_name || !clientInfo.client_name || !clientInfo.tel){
        res.json({ status: "error",
           message: "Sorry, you provided worng info"});
@@ -50,7 +50,7 @@ exports.create_post = function(req, res){
          
        newClient.save(function(err, clientInfo){
           if(err)
-             res.json({message: "Database error", status: "error"});
+             res.json({message: err, status: "error"});
           else
              res.json({
                 message: "New client added",status: "success" , client: clientInfo});
