@@ -25,6 +25,7 @@ app.use((req, res, next) => {
 
 //connect to mongo db use mongo
 const mongoose = require('mongoose');
+mongoose.set('useFindAndModify', false);
 mongoose.connect(dburl, {useNewUrlParser: true, useUnifiedTopology: true});
 
 //default router

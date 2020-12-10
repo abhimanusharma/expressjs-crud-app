@@ -5,22 +5,24 @@ import { Alert } from 'reactstrap';
 
 class AddClient extends Component {
 
-  state = {
-    client_id: "",
-    client_name: "",
-    company_name: "",
-    position: "",
-    tel: "",
-    email: "",
-    last_contacted_on: "",
-    visible: false,
-    color: 'success',
-    msg: '',
-  }
+  constructor(props) {
+    super(props);
 
-  formatDate = (date) => {
-    var d = new Date(date);
-    return (d.getMonth + 1) + '-' + d.getDate() + '-' + d.getFullYear();
+    this.state = {
+      client_id: "",
+      client_name: "",
+      company_name: "",
+      position: "",
+      tel: "",
+      email: "",
+      last_contacted_on: "",
+      visible: false,
+      color: 'success',
+      msg: '',
+    }
+
+    this.handleChange = this.handleChange.bind(this);
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   showAlert = (color, msg) => {
@@ -51,7 +53,7 @@ class AddClient extends Component {
         .then(res => {
           if(res.data){
 
-            this.showAlert("success", "Clients added!");
+            this.showAlert("success", "Client added!");
 
             this.props.getClients();
             this.setState({
@@ -71,14 +73,74 @@ class AddClient extends Component {
     }
   }
 
+  updateClient = (e) => {
+  
+    const client = {
+      client_id: this.state.client_id,
+      client_name: this.state.client_name,
+      company_name: this.state.company_name,
+      position: this.state.position,
+      tel: this.state.tel,
+      email: this.state.email,
+      last_contacted_on: this.state.last_contacted_on,
+    }
+
+    if(Object.keys(client).length !== 0 && client.constructor === Object){
+      var id = this.state._id;
+      axios.put(`/api/clients/${id}`, client)
+        .then(res => {
+          if(res.data){
+
+            this.showAlert("success", "Client updated!");
+
+            this.props.getClients();
+            this.setState({
+              _id: "",
+              client_id: "",
+              client_name: "",
+              company_name: "",
+              position: "",
+              tel: "",
+              email: "",
+              last_contacted_on: ""
+            })
+          }
+        })
+        .catch(err => console.log(err))
+    }else {
+      console.log('input field required')
+    }
+  }
+
+  handleSubmit = (event) => {
+    event.preventDefault();
+  }
+
   handleChange = (e) => {
     this.setState({
       [e.target.name] : e.target.value
     })
   }
 
+  componentDidUpdate(prevProp) {
+    if(prevProp.client.client_id !== this.props.client.client_id){
+      let {client} = this.props;
+      this.setState({
+        _id: client._id,
+        client_id: client.client_id,
+        client_name: client.client_name,
+        company_name: client.company_name,
+        position: client.position,
+        tel: client.tel,
+        email: client.email,
+        last_contacted_on: client.last_contacted_on
+      });
+    }
+  }
+
   render() {
     let { 
+      _id,
       client_id,
       client_name,
       company_name,
@@ -113,10 +175,14 @@ class AddClient extends Component {
             <input type="email" name="email" placeholder="Email ID" className="form-control" onChange={this.handleChange} value={email} required />
           </div>
           <div className="form-group">
-            <input type="date" name="last_contacted_on" placeholder="Last contacted on" className="form-control" onChange={this.handleChange} value={last_contacted_on} required />
+            <input type="date" name="last_contacted_on" placeholder="Last contacted on" className="form-control" onChange={this.handleChange} value={this.props.formatDate(last_contacted_on)} required />
           </div>
           <Alert color={color} isOpen={visible}>{msg}</Alert>
-          <button type="button" className="btn btn-success" onClick={this.addClient}>add Client</button>
+          <input type="hidden" name="_id" value={_id}/>
+          {this.props.isEdit
+            ? <button type="button" className="btn btn-success" onClick={this.updateClient}>Update Client</button>
+          : <button type="button" className="btn btn-success" onClick={this.addClient}>Add Client</button>
+          }
         </form>
       </div>
     )
