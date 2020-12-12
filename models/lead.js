@@ -4,7 +4,7 @@ const Schema = mongoose.Schema;
 
 //model leads
 var leadSchema = new Schema({
-    id: Number,
+    lead_id: Number,
     created_on: Date,
     Source: String,
     assigned_to: String,

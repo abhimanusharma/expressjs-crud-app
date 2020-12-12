@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import uuid from 'react-uuid';
 import axios from 'axios';
 import { Alert } from 'reactstrap';
 
@@ -6,7 +7,7 @@ import { Alert } from 'reactstrap';
 class AddClient extends Component {
 
   state = {
-    client_id: "",
+    client_id: uuid(),
     client_name: "",
     company_name: "",
     position: "",
