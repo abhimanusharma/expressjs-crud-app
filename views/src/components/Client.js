@@ -1,7 +1,6 @@
-import React, {
-	Component
-} from 'react';
+import React, { Component } from 'react';
 import axios from 'axios';
+import uuid from 'react-uuid';
 
 import AddClient from './AddClient';
 import ListClient from './ListClient';
@@ -12,7 +11,7 @@ class Client extends Component {
 		clients: [],
 		client: {
 			_id: "",
-			client_id: "",
+			client_id: uuid(),
 			client_name: "",
 			company_name: "",
 			position: "",

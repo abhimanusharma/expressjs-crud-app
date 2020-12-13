@@ -4,9 +4,9 @@ const Schema = mongoose.Schema;
 
 //model leads
 var leadSchema = new Schema({
-    lead_id: Number,
+    lead_id: String,
     created_on: Date,
-    Source: String,
+    source: String,
     assigned_to: String,
     client_name: String,
     email: String,
@@ -15,10 +15,10 @@ var leadSchema = new Schema({
     company: String,
     domain: String,
     status: Boolean,
-    Confidence: Number,
-    comments: [{ body: String, date: Date }],
+    confidence: Number,
+    comments: String,
     connected_times: Number,
-    isdelete: Boolean
+    is_delete: Boolean
 });
 
 //create model for leads

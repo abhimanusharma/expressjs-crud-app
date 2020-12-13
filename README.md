@@ -51,3 +51,8 @@ Run `npm run dev` to run the application
 After installing mongodb on your local machine or VM or docker create a database in it.
 Run command `mongo` in the terminal. Then run `use <dbname>` where dbname is the name of your databse.
 Update the databse name in the .env file **MONGO_DB_URL** variable.
+
+## Mongo db connection error on windows
+1) mkdir c:\data
+2) cd data
+3) Run command `mongod -dbpath .`
